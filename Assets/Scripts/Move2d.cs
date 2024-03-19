@@ -17,9 +17,6 @@ public class Move2d : MonoBehaviour
     void Update()
     {
         Vector2 move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        if (move.sqrMagnitude > 0.01)
-        {
-            rb.velocity = move * speed;
-        }
+        rb.velocity = move * speed;
     }
 }
