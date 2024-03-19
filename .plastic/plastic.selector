@@ -1,0 +1,4 @@
+repository "BlindFootball@GadeZHAW@cloud"
+  path "/"
+    br "/main"
+    co "/main"
