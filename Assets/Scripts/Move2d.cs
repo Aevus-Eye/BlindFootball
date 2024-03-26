@@ -10,6 +10,8 @@ public class Move2d : MonoBehaviour
     PlayerInput input;
     public float speed = 1;
 
+    private Vector2 movement_input;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,17 +19,15 @@ public class Move2d : MonoBehaviour
         input = GetComponent<PlayerInput>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        // Vector2 move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        // rb.velocity = move * speed;
+        rb.velocity = movement_input * speed * Time.fixedDeltaTime;
     }
 
     // 'Move' input action has been triggered.
     public void OnMove(InputValue value)
     {
-        Vector2 move = value.Get<Vector2>();
-        rb.velocity = move * speed;
+        movement_input = value.Get<Vector2>();
+        // Debug.Log(movement_input);
     }
 }

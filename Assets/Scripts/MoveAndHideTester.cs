@@ -6,7 +6,7 @@ using UnityEngine;
 public class MoveAndHideTester : MonoBehaviour
 {
     AudioPanner audioPanner;
-    MeshRenderer meshRenderer;
+    MeshRenderer[] meshRenderer;
     LineRenderer lineRenderer;
 
     bool isHiding = false;
@@ -17,7 +17,7 @@ public class MoveAndHideTester : MonoBehaviour
     void Start()
     {
         audioPanner = GetComponent<AudioPanner>();
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponentsInChildren<MeshRenderer>();
         lineRenderer = GetComponent<LineRenderer>();
     }
 
@@ -28,12 +28,14 @@ public class MoveAndHideTester : MonoBehaviour
         {
             if (isHiding)
             {
-                meshRenderer.enabled = true;
+                foreach (var r in meshRenderer)
+                    r.enabled = true;
                 isHiding = false;
             }
             else
             {
-                meshRenderer.enabled = false;
+                foreach (var r in meshRenderer)
+                    r.enabled = false;
                 isHiding = true;
                 float x = Random.Range(-audioPanner.radius_x, audioPanner.radius_x);
                 float y = Random.Range(-audioPanner.radius_y, audioPanner.radius_y);
@@ -49,7 +51,8 @@ public class MoveAndHideTester : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                meshRenderer.enabled = true;
+                foreach (var r in meshRenderer)
+                    r.enabled = true;
                 isHiding = false;
 
                 start = transform.position;
