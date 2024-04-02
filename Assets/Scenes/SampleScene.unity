@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -500,6 +500,8 @@ GameObject:
   - component: {fileID: 640951559}
   - component: {fileID: 640951558}
   - component: {fileID: 640951567}
+  - component: {fileID: 640951568}
+  - component: {fileID: 640951569}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -909,6 +911,39 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!95 &640951568
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640951557}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 21a35220e3051894d829f94007e2d74a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &640951569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640951557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9b33f1e4cbb4e49b387897ca2e08a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &734019669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,6 +1911,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2Arrow
       objectReference: {fileID: 0}
+    - target: {fileID: 8586185768922221305, guid: ee6756f23ff15a04d98bf2c67c88d508,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2723,6 +2763,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player1WASD
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586185768922221305, guid: ee6756f23ff15a04d98bf2c67c88d508,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
