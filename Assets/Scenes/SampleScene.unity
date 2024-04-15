@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -470,7 +470,7 @@ Transform:
   m_GameObject: {fileID: 383474346}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.37, y: 4.93, z: 0.71}
+  m_LocalPosition: {x: -6.81, y: 4.88, z: 0.71}
   m_LocalScale: {x: 2.25, y: 2.25, z: 2.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2043,6 +2043,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4343667751271462413, guid: ee6756f23ff15a04d98bf2c67c88d508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4457062251412470012, guid: ee6756f23ff15a04d98bf2c67c88d508,
         type: 3}
       propertyPath: m_Enabled
@@ -2062,6 +2067,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player2Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586185768922221305, guid: ee6756f23ff15a04d98bf2c67c88d508,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8586185768922221305, guid: ee6756f23ff15a04d98bf2c67c88d508,
         type: 3}
@@ -2271,7 +2281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1559637740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2937,6 +2947,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4343667751271462413, guid: ee6756f23ff15a04d98bf2c67c88d508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4764491690852029075, guid: ee6756f23ff15a04d98bf2c67c88d508,
         type: 3}
       propertyPath: m_Enabled
@@ -2956,6 +2971,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8793549295445679532, guid: ee6756f23ff15a04d98bf2c67c88d508,
+        type: 3}
+      propertyPath: player_id
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8793549295445679532, guid: ee6756f23ff15a04d98bf2c67c88d508,
+        type: 3}
+      propertyPath: player_touch_id
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

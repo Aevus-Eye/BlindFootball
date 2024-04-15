@@ -24,6 +24,7 @@ public class MoveAndHideTester : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        return;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isHiding)

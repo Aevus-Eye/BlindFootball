@@ -12,13 +12,8 @@ public class BallAnimator : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnCollisionEnter2D(Collision2D collision) {
+    void OnCollisionEnter2D(Collision2D collision) => OnCollisionStay2D(collision);
+    void OnCollisionStay2D(Collision2D collision) {
         // Überprüfen, ob das kollidierende Objekt ein Spieler ist
         if (collision.collider.tag == "Player") {
             // Trigger 'hit' auslösen, um die hitAnimation zu starten
