@@ -18,7 +18,7 @@ public class BallAnimator : MonoBehaviour
         if (collision.collider.tag == "Player") {
             // Trigger 'hit' auslösen, um die hitAnimation zu starten
             animator.SetTrigger("hit");
-            print("hit Ball");
+            //print("hit Ball");
         }
     }   
 }

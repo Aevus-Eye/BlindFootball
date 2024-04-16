@@ -14,7 +14,7 @@ public class Move2d : MonoBehaviour
 
     private Vector2 movement_input;
     public int player_touch_id = 0;
-    public Vector3 velocity;
+    // public Vector3 velocity;
     // private Vector3 target_touch;
 
     // Start is called before the first frame update
@@ -40,7 +40,7 @@ public class Move2d : MonoBehaviour
 
     void Update()
     {
-        velocity = rb.velocity;
+        // velocity = rb.velocity;
         // get touch input and move ball to that position
         if (Input.touchCount > player_touch_id)
         {
@@ -50,8 +50,9 @@ public class Move2d : MonoBehaviour
             {
                 var target_touch = hit.point;
                 target_touch.z = transform.position.z;
-                velocity = transform.position - target_touch;
-                transform.position = target_touch;
+                // velocity = transform.position - target_touch;
+                rb.MovePosition(target_touch);
+                // transform.position = target_touch;
             }
         }
     }
