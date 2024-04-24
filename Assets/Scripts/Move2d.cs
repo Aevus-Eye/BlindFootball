@@ -68,8 +68,11 @@ public class Move2d : MonoBehaviour
             }
         }
 
-        player_on_bg = "";
-        rb.position = new Vector2(10, 10);
+        if (player_on_bg != "")
+        {
+            player_on_bg = "";
+            rb.position = new Vector2(10, 10);
+        }
     }
 
     // 'Move' input action has been triggered.
