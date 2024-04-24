@@ -13,7 +13,9 @@ public class Move2d : MonoBehaviour
     public float speed = 1;
 
     private Vector2 movement_input;
+    // private string player_touch_id = "";
     public int player_touch_id = 0;
+    private string player_on_bg = "";
     // public Vector3 velocity;
     // private Vector3 target_touch;
 
@@ -46,15 +48,28 @@ public class Move2d : MonoBehaviour
         {
             Touch touch = Input.GetTouch(player_touch_id);
             Ray ray = Camera.main.ScreenPointToRay(touch.position);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            LayerMask layerMask = LayerMask.GetMask("BG");
+            if (Physics.Raycast(ray, out RaycastHit hit, layerMask: layerMask, maxDistance: 1000f))
             {
+                if (player_on_bg == ""){
+                    player_on_bg = hit.collider.gameObject.name;
+                    var target_touch1 = hit.point;
+                    // target_touch1.z = transform.position.z;
+                    rb.position = target_touch1;
+                }
+#if !UNITY_EDITOR
+                if (hit.collider.gameObject.name != player_on_bg)
+                    return;
+#endif
                 var target_touch = hit.point;
-                target_touch.z = transform.position.z;
-                // velocity = transform.position - target_touch;
+                // target_touch.z = transform.position.z;
                 rb.MovePosition(target_touch);
-                // transform.position = target_touch;
+                return;
             }
         }
+
+        player_on_bg = "";
+        rb.position = new Vector2(10, 10);
     }
 
     // 'Move' input action has been triggered.
