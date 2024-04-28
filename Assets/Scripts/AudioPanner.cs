@@ -48,6 +48,10 @@ public class AudioPanner : MonoBehaviour
         audioSource.outputAudioMixerGroup.audioMixer.SetFloat("PitchShift", pitch);
     }
 
+    private void OnCollisionEnter2D(Collision2D other) {
+        audioSource.Play();
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
