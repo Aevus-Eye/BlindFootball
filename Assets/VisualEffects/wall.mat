@@ -121,9 +121,11 @@ Material:
     - _fallof_strength: 1
     - _r_offset: 0.23
     - _r_scale: 0.044
+    - _radial_power: 0.9
     - _size: 0.24
     - _slice_length: 0.15
     - _width: 0.13
+    - _z_pos_for_circular: 0
     m_Colors:
     - _BaseColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
     - _Color: {r: 0.348, g: 0.348, b: 0.348, a: 1}
