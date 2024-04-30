@@ -27,6 +27,6 @@ public class RegisterGoal : MonoBehaviour
 
     private void UpdateScoreText()
     {
-        scoreText.text = $"Goals: {goals}";
+        scoreText.text = $"{goals}";
     }
 }
