@@ -5,8 +5,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class BallAnimator : MonoBehaviour
 {
-    Animator animator;
-    public GameObject trail;
+    [HideInInspector]
+    public Animator animator;
     public Material wall_material;
 
     // Start is called before the first frame update
@@ -21,17 +21,10 @@ public class BallAnimator : MonoBehaviour
         wall_material.SetVector("_ball_pos", transform.position);
     }
 
-    IEnumerator follow_ball()
-    {
-        trail.transform.position = transform.position;
-        yield return null;
-    }
-
     void OnCollisionEnter2D(Collision2D collision) => OnCollisionStay2D(collision);
     void OnCollisionStay2D(Collision2D collision) {
         if (collision.collider.tag == "Player") {
             animator.SetTrigger("hit");
-
         }
     }   
 

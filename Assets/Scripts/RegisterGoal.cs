@@ -20,6 +20,7 @@ public class RegisterGoal : MonoBehaviour
             Debug.Log("Goal!");
             other.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             other.gameObject.transform.position = new Vector3(0, 0, other.gameObject.transform.position.z);
+            other.gameObject.GetComponent<BallAnimator>().animator.SetTrigger("reset");
             goals++;
             UpdateScoreText();
         }
