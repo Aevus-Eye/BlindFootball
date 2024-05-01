@@ -8,6 +8,7 @@ public class AudioPanner : MonoBehaviour
     AudioSource audioSource;
     public float radius_x = 10;
     public float radius_y = 10;
+    public float extra_radius_for_remove = 2;
 
     public AnimationCurve pitch_curve = AnimationCurve.Linear(0, 0, 1, 1);
     public AnimationCurve pan_curve = AnimationCurve.EaseInOut(0, -1, 1, 1);
@@ -46,15 +47,25 @@ public class AudioPanner : MonoBehaviour
         // audioSource.pitch = pitch;
         audioSource.panStereo = pan;
         audioSource.outputAudioMixerGroup.audioMixer.SetFloat("PitchShift", pitch);
+
+        if (transform.position.x > radius_x + extra_radius_for_remove || transform.position.x < -radius_x - extra_radius_for_remove ||
+            transform.position.y > radius_y + extra_radius_for_remove || transform.position.y < -radius_y - extra_radius_for_remove)
+        {
+            transform.position = new Vector3(0, 0, transform.position.z);
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnCollisionEnter2D(Collision2D other)
+    {
         audioSource.Play();
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.green;
         Gizmos.DrawWireCube(new Vector3(0, 0, transform.position.z), new Vector3(radius_x * 2, radius_y * 2, 0));
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(new Vector3(0, 0, transform.position.z), new Vector3((radius_x + extra_radius_for_remove) * 2, (radius_y + extra_radius_for_remove) * 2, 0));
     }
 }
