@@ -57,10 +57,10 @@ public class Move2d : MonoBehaviour
                     // target_touch1.z = transform.position.z;
                     rb.position = target_touch1;
                 }
-#if !UNITY_EDITOR
-                if (hit.collider.gameObject.name != player_on_bg)
-                    return;
-#endif
+// #if !UNITY_EDITOR
+//                 if (hit.collider.gameObject.name != player_on_bg)
+//                     return;
+// #endif
                 var target_touch = hit.point;
                 // target_touch.z = transform.position.z;
                 rb.MovePosition(target_touch);
