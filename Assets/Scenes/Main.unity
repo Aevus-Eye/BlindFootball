@@ -660,7 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80839bde7d6dc79448b64642343ebe02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardSceneCount: 7
+  boardSceneCount: 8
   isInGame: 1
 --- !u!1 &336996565
 GameObject:
@@ -2510,7 +2510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 876004728}
   m_Layer: 0
-  m_Name: BGDecoration
+  m_Name: OldDefaultBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
