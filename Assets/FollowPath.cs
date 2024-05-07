@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem.XR.Haptics;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class FollowPath : MonoBehaviour
 {
     public LineRenderer lineRenderer;
-    public float onPathSpeed = 5.0f;
+    public float onPathSpeed = 1.0f;
     public float lerpSpeed = 0.1f;
     private float distance;
     private Vector3[] positions;
