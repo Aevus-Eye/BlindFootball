@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     int? boardScene = null;
-    public int boardSceneCount = 6;
+    public int boardSceneCount = 8;
     public bool isInGame = false;
 
     private void Awake() {
