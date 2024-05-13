@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: accent Variant
+  m_Name: accentVariantForTitleScreen
   m_Shader: {fileID: -6465566751694194690, guid: 70d46c9324d5f9a4a939f89155a37fad,
     type: 3}
   m_Parent: {fileID: 2100000, guid: 68017e5c849928b4984076e4c9f40244, type: 2}
