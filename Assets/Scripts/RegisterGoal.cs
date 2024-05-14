@@ -7,12 +7,12 @@ public class RegisterGoal : MonoBehaviour
 {
     public TextMeshPro scoreText;
     int goals = 0;
-    MainMenu mainMenu;
+    LevelManager mainMenu;
     // Start is called before the first frame update
     void Start()
     {
         UpdateScoreText();
-        mainMenu = FindObjectOfType<MainMenu>();
+        mainMenu = FindObjectOfType<LevelManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -25,7 +25,7 @@ public class RegisterGoal : MonoBehaviour
             other.gameObject.GetComponent<BallAnimator>().animator.SetTrigger("reset");
             goals++;
             UpdateScoreText();
-            mainMenu.LoadRandomScene();
+            StartCoroutine(mainMenu.CoLoadNextLevel());
         }
     }
 
