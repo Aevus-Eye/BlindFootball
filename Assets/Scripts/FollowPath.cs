@@ -15,7 +15,6 @@ public class FollowPath : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    // Start is called before the first frame update
     void Start()
     {
         positions = new Vector3[lineRenderer.positionCount];
@@ -27,14 +26,12 @@ public class FollowPath : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         distance += onPathSpeed * Time.deltaTime;
         if (distance > Vector3.Distance(positions[index], positions[(index + 1) % positions.Length]))
-        {
             distance = Vector3.Distance(positions[index], positions[(index + 1) % positions.Length]);
-        }
+
         Vector2 pos = Vector3.Lerp(positions[index], positions[(index + 1) % positions.Length], distance / Vector3.Distance(positions[index], positions[(index + 1) % positions.Length]));
         if (distance >= Vector3.Distance(positions[index], positions[(index + 1) % positions.Length]))
         {

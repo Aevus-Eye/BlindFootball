@@ -13,8 +13,6 @@ public class AudioPanner : MonoBehaviour
     public AnimationCurve pitch_curve = AnimationCurve.Linear(0, 0, 1, 1);
     public AnimationCurve pan_curve = AnimationCurve.EaseInOut(0, -1, 1, 1);
 
-    // public float max_pitch = 3;
-    // public float min_pitch = 0.5f;
     public float max_pan = 1;
     public float min_pan = -1;
 
@@ -32,12 +30,6 @@ public class AudioPanner : MonoBehaviour
         return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }
 
-    // static float PitchMap01(float value)
-    // {
-    //     return value * value + value / 2 + 0.5f;
-    // }
-
-    // Update is called once per frame
     void Update()
     {
         float pan = Remap(transform.position.x, -radius_x, radius_x, 0, 1);
@@ -45,7 +37,6 @@ public class AudioPanner : MonoBehaviour
         pan = pan_curve.Evaluate(pan);
         pitch = pitch_curve.Evaluate(pitch);
 
-        // audioSource.pitch = pitch;
         audioSource.panStereo = pan;
         audioSource.outputAudioMixerGroup.audioMixer.SetFloat("PitchShift", pitch);
 

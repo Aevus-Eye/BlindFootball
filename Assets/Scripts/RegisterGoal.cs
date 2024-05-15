@@ -8,7 +8,7 @@ public class RegisterGoal : MonoBehaviour
     public TextMeshPro scoreText;
     int goals = 0;
     LevelManager mainMenu;
-    // Start is called before the first frame update
+
     void Start()
     {
         UpdateScoreText();
@@ -29,8 +29,5 @@ public class RegisterGoal : MonoBehaviour
         }
     }
 
-    private void UpdateScoreText()
-    {
-        scoreText.text = $"{goals}";
-    }
+    private void UpdateScoreText() => scoreText.text = $"{goals}";
 }

@@ -119,7 +119,7 @@ Material:
     - _ZWrite: 1
     - _a_noise_scale: 10.21
     - _a_noise_strength: 4.14
-    - _alpha: 0
+    - _alpha: 1
     - _alpha_power: 0.05
     - _band_length: -10.6
     - _s: 0.7

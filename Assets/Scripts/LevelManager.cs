@@ -1,16 +1,23 @@
+#nullable enable
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
-using System;
-using Unity.VisualScripting;
 
 // hack to make records work in Unity
 namespace System.Runtime.CompilerServices { class IsExternalInit { } }
 
 public class LevelManager : MonoBehaviour
 {
+    public static class SceneID
+    {
+        public const int MAIN_MENU = 0;
+        public const int MAIN_SCENE = 1;
+        public const int LEVEL_START = 2;
+        public const int LEVEL_COUNT = 8;
+    }
+
     private static LevelManager? _instance = null;
     public static LevelManager Instance
     {
@@ -25,6 +32,9 @@ public class LevelManager : MonoBehaviour
             return _instance;
         }
     }
+
+    int? currentLoadedLevel = null;
+    readonly LevelBag levelBag = new(3, Enumerable.Range(SceneID.LEVEL_START, SceneID.LEVEL_COUNT).ToList());
 
     // rust like enum for scene state
     public abstract record SceneState()
@@ -43,19 +53,17 @@ public class LevelManager : MonoBehaviour
             scenes.Add(SceneManager.GetSceneAt(i).buildIndex);
         scenes.Sort();
 
-        if (scenes.Count == 1)
+        return scenes.Count switch
         {
-            if (scenes[0] == 0)
-                return new SceneState.InMainMenu();
-            else if (scenes[0] == 1)
-                return new SceneState.InMainScene();
-            else
-                return new SceneState.InLevel(scenes[0]);
-        }
-        else if (scenes.Count == 2 && scenes[0] == 1)
-            return new SceneState.InMainSceneAndLevel(scenes[1]);
-        else
-            return new SceneState.Unknown();
+            1 => scenes[0] switch
+            {
+                SceneID.MAIN_MENU => new SceneState.InMainMenu(),
+                SceneID.MAIN_SCENE => new SceneState.InMainScene(),
+                int l => new SceneState.InLevel(l),
+            },
+            2 when scenes[0] == SceneID.MAIN_SCENE => new SceneState.InMainSceneAndLevel(scenes[1]),
+            _ => new SceneState.Unknown()
+        };
     }
 
     [RuntimeInitializeOnLoadMethod]
@@ -84,11 +92,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    const int LEVEL_COUNT = 8;
-    int? currentLoadedLevel = null;
-
-    private readonly List<int> levelBag = new();
-
     // necessary because this GO needs to own the coroutine, otherwise it gets killed when the scene changes
     public void PlayGame() => StartCoroutine(CoPlayGame());
     public IEnumerator CoPlayGame()
@@ -97,38 +100,12 @@ public class LevelManager : MonoBehaviour
         yield return CoLoadNextLevel();
     }
 
-    private void FillLevelBag()
-    {
-        levelBag.Clear();
-        for (int i = 0; i < LEVEL_COUNT; i++)
-            levelBag.Add(i + 2);
-        levelBag.Shuffle();
-    }
-
-    private int GetNextLevel(int? currentLevel)
-    {
-        if (levelBag.Count == 0)
-            FillLevelBag();
-        int nextLevel = levelBag[0];
-        levelBag.RemoveAt(0);
-
-        // put the scene back in the bag if its the same as the current one
-        if (currentLevel == nextLevel)
-        {
-            levelBag.Add(nextLevel);
-            nextLevel = levelBag[0];
-            levelBag.RemoveAt(0);
-        }
-        return nextLevel;
-    }
-
     public void LoadNextLevel() => StartCoroutine(CoLoadNextLevel());
-
     public IEnumerator CoLoadNextLevel()
     {
         int? tmpCurrentLoadedLevel = currentLoadedLevel;
-        int nextLevel = GetNextLevel(tmpCurrentLoadedLevel);
-        currentLoadedLevel = nextLevel; 
+        int nextLevel = levelBag.GetNextLevel();
+        currentLoadedLevel = nextLevel;
 
         yield return SceneManager.LoadSceneAsync(nextLevel, LoadSceneMode.Additive);
         if (tmpCurrentLoadedLevel != null)

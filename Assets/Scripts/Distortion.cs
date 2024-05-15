@@ -20,7 +20,6 @@ public class Distortion : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            print("Hit Wall");
             distortionEffect.SetActive(true);
             var col = other.GetContact(0);
             var pos = col.point + col.normal * distance;
