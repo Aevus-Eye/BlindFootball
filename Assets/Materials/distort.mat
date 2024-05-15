@@ -54,7 +54,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: -3
     - _power: 2.7
-    - _strength: 0.85
+    - _strength: -0.13
     m_Colors:
     - _offset: {r: 0.1, g: 0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
