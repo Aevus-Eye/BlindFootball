@@ -22,6 +22,7 @@ public class AudioPanner : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
     }
 
     public static float Remap(float value, float from1, float to1, float from2, float to2, bool clamp = false)
@@ -58,7 +59,7 @@ public class AudioPanner : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        audioSource.Play();
+        // audioSource.Play();
     }
 
     private void OnDrawGizmosSelected()
