@@ -50,7 +50,7 @@ public class AudioPanner : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        // audioSource.Play();
+        audioSource.Play();
     }
 
     private void OnDrawGizmosSelected()
