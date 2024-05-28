@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RegisterGoal : MonoBehaviour
 {
+    private static int totalGoals = 0;
+
     public TextMeshPro scoreText;
     int goals = 0;
     LevelManager mainMenu;
@@ -13,19 +15,23 @@ public class RegisterGoal : MonoBehaviour
     {
         UpdateScoreText();
         mainMenu = FindObjectOfType<LevelManager>();
+        totalGoals = 0;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ball"))
         {
-            Debug.Log("Goal!");
             other.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             other.gameObject.transform.position = new Vector3(0, 0, other.gameObject.transform.position.z);
             other.gameObject.GetComponent<BallAnimator>().animator.SetTrigger("reset");
             goals++;
+            totalGoals++;
             UpdateScoreText();
-            StartCoroutine(mainMenu.CoLoadNextLevel());
+
+            // only change the level every third goal
+            if (totalGoals % 3 == 0)
+                mainMenu.LoadNextLevel();
         }
     }
 
