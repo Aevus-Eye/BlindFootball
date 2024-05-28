@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -15,7 +13,7 @@ public class BallAnimator : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) => OnCollisionStay2D(collision);
     void OnCollisionStay2D(Collision2D collision) {
-        if (collision.collider.tag == "Player") 
+        if (collision.collider.CompareTag("Player")) 
             animator.SetTrigger("hit");
     }   
 

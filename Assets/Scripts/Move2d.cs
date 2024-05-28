@@ -12,15 +12,9 @@ public class Move2d : MonoBehaviour
     private string player_on_bg = "";
 
     // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    void Start() => rb = GetComponent<Rigidbody2D>();
 
-    void FixedUpdate()
-    {
-        rb.velocity = movement_input * speed * Time.fixedDeltaTime;
-    }
+    void FixedUpdate() => rb.velocity = speed * Time.fixedDeltaTime * movement_input;
 
     void Update()
     {
@@ -51,8 +45,5 @@ public class Move2d : MonoBehaviour
     }
 
     // 'Move' input action has been triggered.
-    public void OnMove(InputValue value)
-    {
-        movement_input = value.Get<Vector2>();
-    }
+    public void OnMove(InputValue value) => movement_input = value.Get<Vector2>();
 }

@@ -5,7 +5,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
-using Unity.VisualScripting;
 
 // hack to make records work in Unity
 namespace System.Runtime.CompilerServices { class IsExternalInit { } }
@@ -51,11 +50,11 @@ public class LevelManager : MonoBehaviour
             {
                 var inst = new GameObject("LevelManager", typeof(LevelManager));
                 DontDestroyOnLoad(inst);
-                Instantiate(Resources.Load("Music"), inst.transform)
-                    .GetComponent<AudioSource>()
-                    .outputAudioMixerGroup
-                    .audioMixer
-                    .SetFloat("PitchShift", 1.0f);
+                var music = (GameObject)Instantiate(Resources.Load("Music"), inst.transform);
+                music.GetComponent<AudioSource>()
+                     .outputAudioMixerGroup
+                     .audioMixer
+                     .SetFloat("PitchShift", 1.0f);
                 _instance = inst.GetComponent<LevelManager>();
             }
             return _instance;
@@ -95,26 +94,26 @@ public class LevelManager : MonoBehaviour
     [RuntimeInitializeOnLoadMethod]
     static void Startup()
     {
-        print(GetLevelState());
+        var inst = Instance;
         switch (GetLevelState())
         {
             case SceneState.InMainMenu _:
                 // do nothing
                 break;
             case SceneState.InMainSceneAndLevel(string level):
-                Instance.currentLoadedLevel = level;
+                inst.currentLoadedLevel = level;
                 break;
             case SceneState.InMainScene _:
-                Instance.LoadNextLevel();
+                inst.LoadNextLevel();
                 break;
             case SceneState.InLevel(string level):
                 SceneManager.LoadSceneAsync(Scenes.MAIN_SCENE, LoadSceneMode.Additive);
-                Instance.currentLoadedLevel = level;
+                inst.currentLoadedLevel = level;
                 break;
 
             case SceneState.Unknown _:
             default:
-                Instance.PlayGame();
+                inst.PlayGame();
                 break;
         }
     }

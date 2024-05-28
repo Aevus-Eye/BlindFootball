@@ -1,6 +1,9 @@
 using System.Collections;
-using UnityEditor.SceneManagement;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor.SceneManagement;
+#endif
 
 [ExecuteAlways]
 public class DisableWhenLoadingAnythingElse : MonoBehaviour
@@ -24,8 +27,8 @@ public class DisableWhenLoadingAnythingElse : MonoBehaviour
     {
         if (this != null)
             StartCoroutine(CoSetEnabledBasedOnLoadedLevels());
-    
     }
+    
     private IEnumerator CoSetEnabledBasedOnLoadedLevels()
     {
         yield return null; // waiting 1 frame is required for some reason, otherwise it doesnt recognise when a scene is deloaded
