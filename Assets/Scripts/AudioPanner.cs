@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioPanner : MonoBehaviour
@@ -11,12 +12,20 @@ public class AudioPanner : MonoBehaviour
     public AnimationCurve pitchCurve = AnimationCurve.Linear(0, 0, 1, 1);
     public AnimationCurve panCurve = AnimationCurve.EaseInOut(0, -1, 1, 1);
 
-    // Start is called before the first frame update
+    public List<GameObject> children;
     void Start()
     {
         ballHitSound = GetComponent<AudioSource>();
         ballHitSound.Play();
-        bgMusic = LevelManager.Instance.GetComponentInChildren<AudioSource>();
+        bgMusic = SingletonManager.singletonGO.GetComponentInChildren<AudioSource>();
+
+        // children = new ();
+        // foreach (Transform child in SingletonManager.singletonGO.transform)
+        // {
+        //     children.Add(child.gameObject);
+        // }
+
+        // bgMusic =children[1].GetComponent<AudioSource>();
     }
 
     public static float Remap(float value, float from1, float to1, float from2, float to2, bool clamp = false)

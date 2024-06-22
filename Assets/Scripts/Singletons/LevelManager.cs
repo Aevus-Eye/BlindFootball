@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 
 // hack to make records work in Unity
+#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace System.Runtime.CompilerServices { class IsExternalInit { } }
+#pragma warning restore IDE0130 // Namespace does not match folder structure
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : SingletonBaseMono<LevelManager>
 {
     public static class Scenes
     {
@@ -39,26 +41,6 @@ public class LevelManager : MonoBehaviour
         public record InLevel(string level) : SceneState;
         public record InMainSceneAndLevel(string level) : SceneState;
         public record Unknown() : SceneState;
-    }
-
-    private static LevelManager? _instance = null;
-    public static LevelManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                var inst = new GameObject("LevelManager", typeof(LevelManager));
-                DontDestroyOnLoad(inst);
-                var music = (GameObject)Instantiate(Resources.Load("Music"), inst.transform);
-                music.GetComponent<AudioSource>()
-                     .outputAudioMixerGroup
-                     .audioMixer
-                     .SetFloat("PitchShift", 1.0f);
-                _instance = inst.GetComponent<LevelManager>();
-            }
-            return _instance;
-        }
     }
 
     string? currentLoadedLevel = null;
@@ -118,14 +100,14 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void Awake() => levelBag = new(3, Scenes.AllScenesInBuild.Where(s => IsLevel(s)).ToList());
+    private void Awake() => levelBag = new(3, Scenes.AllScenesInBuild.Where(IsLevel).ToList());
 
     // these StartCoroutine wrappers are neccessary because this GO needs to own the coroutine, 
     // otherwise it gets killed when the scene changes if StartCoroutine is called from a different GO
     public void PlayGame() => StartCoroutine(CoPlayGame());
     public IEnumerator CoPlayGame()
     {
-        yield return SceneManager.LoadSceneAsync(1);
+        yield return SceneManager.LoadSceneAsync(Scenes.MAIN_SCENE);
         yield return CoLoadNextLevel();
     }
 
@@ -138,7 +120,13 @@ public class LevelManager : MonoBehaviour
 
         yield return SceneManager.LoadSceneAsync(nextLevel, LoadSceneMode.Additive);
         if (tmpCurrentLoadedLevel != null)
-            yield return SceneManager.UnloadSceneAsync(tmpCurrentLoadedLevel);
+        {
+            var out_effect = LevelTransitionManager.Instance.Initiate(tmpCurrentLoadedLevel, LevelTransitionManager.TransitionDirection.Out);
+            StartCoroutine(out_effect.MoveObjectsOutCoroutine(() => SceneManager.UnloadSceneAsync(tmpCurrentLoadedLevel)));
+        }
+        var in_effect = LevelTransitionManager.Instance.Initiate(nextLevel, LevelTransitionManager.TransitionDirection.In);
+        in_effect.TeleportObjectsOut();
+        yield return in_effect.MoveObjectsInCoroutine();
     }
 
     public void QuitGame() => Application.Quit();

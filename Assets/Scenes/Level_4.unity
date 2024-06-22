@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 238200085}
   - component: {fileID: 238200084}
   - component: {fileID: 238200083}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (16)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -397,12 +397,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292441962}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.87, y: 0.86, z: 3.63}
-  m_LocalScale: {x: 2.5817895, y: 2.5817895, z: 2.5817895}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.29546565, z: 0}
+  m_LocalScale: {x: 0.75187963, y: 0.7518797, z: 0.7518797}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 775562506}
+  m_Father: {fileID: 1076648074}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!23 &292441964
 MeshRenderer:
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 463655425}
   - component: {fileID: 463655424}
   - component: {fileID: 463655423}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -585,7 +585,7 @@ GameObject:
   - component: {fileID: 502677286}
   - component: {fileID: 502677285}
   - component: {fileID: 502677284}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (20)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -719,8 +719,8 @@ Transform:
   m_GameObject: {fileID: 567111325}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.278, z: -0}
-  m_LocalScale: {x: 0.82, y: 0.82, z: 0.82}
+  m_LocalPosition: {x: 0, y: -0.269, z: -0}
+  m_LocalScale: {x: 0.82, y: 0.811062, z: 0.82}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1651498828}
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 636061584}
   - component: {fileID: 636061583}
   - component: {fileID: 636061582}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (4)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1035,7 +1035,7 @@ GameObject:
   - component: {fileID: 726486977}
   - component: {fileID: 726486976}
   - component: {fileID: 726486975}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (6)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1154,7 +1154,7 @@ GameObject:
   - component: {fileID: 734842053}
   - component: {fileID: 734842052}
   - component: {fileID: 734842051}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (9)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1293,7 +1293,6 @@ Transform:
   - {fileID: 1992075238}
   - {fileID: 1651498828}
   - {fileID: 1983583922}
-  - {fileID: 292441963}
   - {fileID: 1076648074}
   - {fileID: 1736740028}
   m_Father: {fileID: 0}
@@ -1310,7 +1309,7 @@ GameObject:
   - component: {fileID: 824869077}
   - component: {fileID: 824869076}
   - component: {fileID: 824869075}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (13)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1761,8 +1760,8 @@ Transform:
   m_GameObject: {fileID: 953709987}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.278, z: -0}
-  m_LocalScale: {x: 0.82, y: 0.82, z: 0.82}
+  m_LocalPosition: {x: 0, y: -0.272, z: -0}
+  m_LocalScale: {x: 0.82, y: 0.81401396, z: 0.82}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1983583922}
@@ -1829,7 +1828,7 @@ GameObject:
   - component: {fileID: 955555971}
   - component: {fileID: 955555970}
   - component: {fileID: 955555969}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (21)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1948,7 +1947,7 @@ GameObject:
   - component: {fileID: 971309997}
   - component: {fileID: 971309996}
   - component: {fileID: 971309995}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (7)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2150,7 +2149,7 @@ GameObject:
   - component: {fileID: 983886138}
   - component: {fileID: 983886137}
   - component: {fileID: 983886136}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (15)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2269,7 +2268,7 @@ GameObject:
   - component: {fileID: 1022318611}
   - component: {fileID: 1022318610}
   - component: {fileID: 1022318609}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (10)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2387,7 +2386,7 @@ GameObject:
   - component: {fileID: 1076648074}
   - component: {fileID: 1076648076}
   - component: {fileID: 1076648075}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2406,7 +2405,8 @@ Transform:
   m_LocalPosition: {x: 0.87, y: 0.8599998, z: 4.644564}
   m_LocalScale: {x: 3.4337802, y: 3.4337802, z: 3.4337802}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 292441963}
   m_Father: {fileID: 775562506}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!23 &1076648075
@@ -2600,7 +2600,7 @@ GameObject:
   - component: {fileID: 1326123000}
   - component: {fileID: 1326122999}
   - component: {fileID: 1326122998}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (5)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2847,7 +2847,7 @@ GameObject:
   - component: {fileID: 1651498828}
   - component: {fileID: 1651498830}
   - component: {fileID: 1651498829}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2931,7 +2931,7 @@ GameObject:
   - component: {fileID: 1736740028}
   - component: {fileID: 1736740030}
   - component: {fileID: 1736740029}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3274,7 +3274,7 @@ GameObject:
   - component: {fileID: 1824364422}
   - component: {fileID: 1824364421}
   - component: {fileID: 1824364420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (3)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -3393,7 +3393,7 @@ GameObject:
   - component: {fileID: 1839971230}
   - component: {fileID: 1839971229}
   - component: {fileID: 1839971228}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (11)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -3641,7 +3641,7 @@ GameObject:
   - component: {fileID: 1893401074}
   - component: {fileID: 1893401073}
   - component: {fileID: 1893401072}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (12)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -3760,7 +3760,7 @@ GameObject:
   - component: {fileID: 1926689635}
   - component: {fileID: 1926689634}
   - component: {fileID: 1926689633}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (19)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -3961,7 +3961,7 @@ GameObject:
   - component: {fileID: 1983583922}
   - component: {fileID: 1983583924}
   - component: {fileID: 1983583923}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4174,7 +4174,7 @@ GameObject:
   - component: {fileID: 1992075238}
   - component: {fileID: 1992075240}
   - component: {fileID: 1992075239}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4259,7 +4259,7 @@ GameObject:
   - component: {fileID: 2093871441}
   - component: {fileID: 2093871440}
   - component: {fileID: 2093871439}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (14)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -4378,7 +4378,7 @@ GameObject:
   - component: {fileID: 2122283263}
   - component: {fileID: 2122283262}
   - component: {fileID: 2122283261}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (8)
   m_TagString: Wall
   m_Icon: {fileID: 0}
